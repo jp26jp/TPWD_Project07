@@ -112,6 +112,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATE_INPUT_FORMATS = [
+    '%Y-%m-%d',  # YYYY-MM-DD
+    '%m/%d/%Y',  # MM/DD/YYYY
+    '%m/%d/%y',  # MM/DD/YY
+]
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets'),

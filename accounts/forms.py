@@ -10,6 +10,8 @@ class EditProfileModelForm(forms.ModelForm):
         model = Account
         fields = ['first_name', 'last_name', 'dob', 'email', 'email_confirmation', 'bio', 'avatar']
 
+
+
     def clean(self, *args, **kwargs):
         cleaned_data = super(EditProfileModelForm, self).clean()
         email = self.cleaned_data.get('email')
