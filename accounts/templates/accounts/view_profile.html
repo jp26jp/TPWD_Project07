@@ -9,5 +9,6 @@
 <p><b>Email:</b> {% if profile.email %}{{profile.email}}{% endif %}</p>
 <p><b>Birthdate:</b> {% if profile.dob %}{{profile.dob}}{% endif %}</p>
 <p><b>Bio:</b> {% if profile.bio %}{{profile.bio}}{% endif %}</p>
-<a class="button button-primary" href="/accounts/profile/edit/">Edit Profile</a>
+<a href="{% url 'accounts:edit_profile' %}" class="button button-primary">Edit Profile</a>
+<a href="{% url 'accounts:change_password' %}" class="button button-primary">Change Password</a>
 {% endblock %}

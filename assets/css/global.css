@@ -2006,6 +2006,11 @@ input[type="email"].circle--input--h6, input[type="number"].circle--input--h6, i
 .circle--page {
   margin-bottom: 100px;
 }
+.circle--page img {
+  max-width: 200px;
+  display: block;
+}
+
 /* line 2, ../sass/circle/core/mixins.sass */
 .circle--page:before, .circle--page:after {
   content: " ";
