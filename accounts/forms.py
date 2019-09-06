@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import PasswordChangeForm
@@ -34,7 +36,14 @@ class PasswordChangeFormExt(PasswordChangeForm):
             if new_password == old_password:
                 raise forms.ValidationError("New password must be different than the old password")
 
-        if user.first_name.lower() in new_password.lower() or user.last_name.lower() in new_password.lower():
+        if (user.first_name != "" and user.first_name.lower() in new_password.lower()
+                or user.last_name != "" and user.last_name.lower() in new_password.lower()):
             raise forms.ValidationError("You cannot use personal information in your password")
+
+        if new_password.isupper() or new_password.islower():
+            raise forms.ValidationError("Password must contain uppercase and lowercase letters")
+
+        if re.match("^[a-zA-Z0-9]*$", new_password):
+            raise forms.ValidationError("Password must contain a special character")
 
         return self.cleaned_data
